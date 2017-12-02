@@ -75,27 +75,33 @@ public class TransitionTester {
 		leftFrame.setVisible(true);
 		rightFrame.setVisible(true);
 
-		final int NumTransitions = 3;	// Lab Q2: Modify This
-		int nextTransition = 0;
-		while (leftFrame.isVisible() || rightFrame.isVisible()) {
-			myRightPanel.clearImage(myRightPanel.getGraphics());
-			switch(nextTransition) {
-				case 0:
-					myRightPanel.transitionLRTB(myRightPanel.getGraphics(), img);
-					break;
-					
-				case 1:
-					myRightPanel.transitionDiagonal45LR(myRightPanel.getGraphics(), img);
-				break;
+		final int NumTransitions = 4;    
+        int nextTransition = 0;
+        while (leftFrame.isVisible() || rightFrame.isVisible()) {
+            myRightPanel.clearImage(myRightPanel.getGraphics());
+            switch(nextTransition) {
+                case 0:
+                    myRightPanel.transitionLRTB(myRightPanel.getGraphics(), img);
+                    break;
+                    
+                case 1:
+                    myRightPanel.transitionDiagonal45LR(myRightPanel.getGraphics(), img);
+                break;
+                
+                
+                case 2:
+                    myRightPanel.transitionTBLR(myRightPanel.getGraphics(), img);
+                    break;
+                    
+                case 3:
+                    myRightPanel.transitionRandom(myRightPanel.getGraphics(), img);
+                    break;
+                
+                
+            }
 				
 				
-				case 2:
-					myRightPanel.transitionTBLR(myRightPanel.getGraphics(), img);
-					break;
-				// Lab Q2: Your Code Here
-				
-				
-			}
+			
 			nextTransition = (nextTransition + 1) % NumTransitions;
 		}
 	}

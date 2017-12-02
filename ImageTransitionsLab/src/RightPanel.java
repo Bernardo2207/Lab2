@@ -15,11 +15,19 @@ public class RightPanel extends JPanel {
 	public void transitionRandom(Graphics g, BufferedImage leftImage){
 		int width = leftImage.getWidth();
 		int height = leftImage.getHeight();
+		int size= width*height;
 		
+		int x,y;
 		Random rand = new Random();
-		int pixel = width - height + 1;
-		int i = rand.nextInt() % pixel;
-		int randomNum =  height + i;
+		for(int i=0;i<8*size;i++) {
+			 x = rand.nextInt(width);
+			 y = rand.nextInt(height);
+			 
+			 int pixelColor= leftImage.getRGB(x,y);
+				img.setRGB(x, y, pixelColor);
+				repaint();
+				try { Thread.sleep(2); } catch (InterruptedException e) { };
+		}
 		
 		
 		
